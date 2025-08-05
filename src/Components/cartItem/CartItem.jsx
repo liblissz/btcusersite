@@ -91,29 +91,6 @@ const CartItem = () => {
     }
   };
 
-
-  // const validatepin = async e => {
-  //   e.preventDefault();
-
-  //   // pull back the saved orderId
-  //   const savedOrderId = localStorage.getItem('latestOrderId');
-  //   if (!savedOrderId) {
-  //     return toast.error("No order found — please submit your order first.");
-  //   }
-
-  //   setLoadin(true);
-  //   try {
-  //     // use the same helper you wired up to POST /order/updatestatus/:id
-  //     const { data } = await confirmOrder(savedOrderId, pin);
-  //     toast.success(data.message);
-  //   } catch (err) {
-  //     console.error("Error confirming pin:", err);
-  //     toast.error(err.response?.data?.message || "Failed to confirm order");
-  //   } finally {
-  //     setLoadin(false);
-  //   }
-  // };
-
   const validatepin = async e => {
     e.preventDefault();
     const savedOrderId = localStorage.getItem('latestOrderId');
@@ -150,7 +127,7 @@ const CartItem = () => {
   return (
     <div className='cartitem'>
 
-      {localStorage.getItem('latestOrderId') ? "" :
+ 
         <>
           <div className="cart-item-format-main none">
             <p>products</p>
@@ -198,13 +175,13 @@ const CartItem = () => {
             );
           })}
         </>
-      }
+      
 
 
 
 
 
-      {localStorage.getItem('latestOrderId') ? "" :
+ 
 
         <div className="cartitems-down">
           <div className="cartitems-total">
@@ -298,7 +275,7 @@ const CartItem = () => {
           </form>
 
         </div>
-      }
+      
 
 
       {status && <p className="form-status">{status}</p>}
@@ -310,7 +287,7 @@ const CartItem = () => {
 
 
       {/* pin  validation */}
-
+{/* 
       {localStorage.getItem('latestOrderId') ? <form onSubmit={validatepin} className="cartitems-promocode">
         <div className="cartitem-promobox">
           <input
@@ -326,7 +303,7 @@ const CartItem = () => {
           {loadin ? 'Sending...' : 'Submit Pin'}
         </button>
       </form> : ""
-      }
+      } */}
     </div>
 
   )
